@@ -19,7 +19,7 @@
   width: 100%;
 
   top: 0vh;
-  height: 50vh;
+  height: 55vh;
   z-index: 10;
 
   animation: brighten var(--sunrise) ease-in alternate infinite;
@@ -32,6 +32,7 @@
   z-index: 40;
 
   background-color: #0077be;
+  border-radius: 35%/5px 10px 0px 0px
 }
 
 #sun {
@@ -49,6 +50,60 @@
   background-color: yellow;
 
   animation: rise var(--sunrise) ease-in alternate infinite;
+}
+
+.star {  
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  animation: fadeout var(--sunrise) ease-in alternate infinite;
+}
+
+.star.tiny {
+  height: 1px;
+  width: 1px;
+}
+
+.star.small {
+  height: 2px;
+  width: 2px;
+}
+
+.star.medium {
+  height: 3px;
+  width: 3px;
+}
+
+.star.large { 
+  height: 5px;
+  width: 5px;
+}
+
+@keyframes twinkle {
+  0% {
+    background-color: grey;
+  }
+  100% {
+    transform: scale(1.3, 1.3);    
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1.0;
+  }
+
+  20% {
+    opacity: 0.6;    
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  70%, 100% {
+    opacity: 0.0;
+  }
 }
 
 @keyframes brighten {
