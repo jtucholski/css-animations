@@ -1,6 +1,7 @@
 :root {
   --sun-size: 150px;
   --sunrise: 10s;
+  --yellow: #ff0;
 }
 
 * {
@@ -31,8 +32,9 @@
   height: 50vh;
   z-index: 40;
 
-  background-color: #0077be;
-  border-radius: 35%/5px 10px 0px 0px
+  /* background-color: #0077be; */
+  background: radial-gradient(at 50% 0%, #0077be, #007);
+  border-radius: 35%/5px 10px 0px 0px;  
 }
 
 #sun {
@@ -46,8 +48,10 @@
   right: 0;
 
   border-radius: 50%;
+  
+  background: linear-gradient(to bottom, #d00,  var(--yellow) 0%);
+  box-shadow: 0 0 0px 0px var(--yellow);
 
-  background-color: yellow;
 
   animation: rise var(--sunrise) ease-in alternate infinite;
 }
@@ -118,14 +122,9 @@
 @keyframes rise {
   0% {
     top: 51vh;
-  }
+  }  
   100% {
+    box-shadow: 0 0 100px 10px var(--yellow);
     top: 10vh;
   }
 }
-
-/*
-    1. I can make a ball go up and down (from behind the earth).
-    2. As the ball goes up, the sky goes from dark to blue.
-    3. As the ball goes down, the sky goes back from blue to dark.    
-*/
