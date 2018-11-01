@@ -2,6 +2,8 @@
   --sun-size: 150px;
   --sunrise: 10s;
   --yellow: #ff0;
+  --dark-night: #131862;
+  --day-light: rgb(135, 206, 235);
 }
 
 * {
@@ -12,54 +14,85 @@
 
 #sky,
 #sea,
-#sun {
+#sun,
+.star {
   position: absolute;
 }
 
-#sky {
-  width: 100%;
-
-  top: 0vh;
-  height: 55vh;
-  z-index: 10;
-
-  animation: brighten var(--sunrise) ease-in alternate infinite;
-}
-
-#sea {
-  width: 100%;
-  top: 50vh;
-  height: 50vh;
-  z-index: 40;
-
-  /* background-color: #0077be; */
-  background: radial-gradient(at 50% 0%, #0077be, #007);
-  border-radius: 35%/5px 10px 0px 0px;  
-}
-
+/* SUN RISE */
 #sun {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   width: var(--sun-size);
   height: var(--sun-size);
   z-index: 30;
-
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-
   border-radius: 50%;
-  
-  background: linear-gradient(to bottom, #d00,  var(--yellow) 0%);
+  background: linear-gradient(to bottom, #d00, var(--yellow) 0%);
   box-shadow: 0 0 0px 0px var(--yellow);
 
-
+  /* Animation */
   animation: rise var(--sunrise) ease-in alternate infinite;
 }
 
-.star {  
-  border-radius: 50%;
+@keyframes rise {
+  0% {
+    top: 51vh;
+  }
+  100% {
+    box-shadow: 0 0 100px 10px var(--yellow);
+    top: 10vh;
+  }
+}
+
+
+/* SKY */
+#sky {
+  z-index: 10;
+  top: 0vh;
+  width: 100%;
+  height: 55vh;
+
+  /* Animation */
+  animation: brighten var(--sunrise) ease-in alternate infinite;
+}
+
+@keyframes brighten {
+  0% {
+    background-color: var(--dark-night);
+  }
+  100% {
+    background-color: var(--dark-night);
+  }
+}
+
+/* SEA */
+#sea {
+  z-index: 40;
+  top: 50vh;
+  width: 100%;
+  height: 50vh;
+  background: radial-gradient(at 50% 0%, #0077be, #007);
+  border-radius: 35%/5px 10px 0px 0px;
+
+  /* Animation */
+  animation: wave 3s alternate infinite;
+}
+
+@keyframes wave {
+  50% {
+    top: 49.5vh;
+    height: 50.5vh;
+  }
+}
+
+
+/* STARS */
+.star {
   background-color: white;
-  position: absolute;
+  border-radius: 50%;
+
+  /* Animation */
   animation: fadeout var(--sunrise) ease-in alternate infinite;
 }
 
@@ -78,53 +111,32 @@
   width: 3px;
 }
 
-.star.large { 
+.star.large {
   height: 5px;
   width: 5px;
 }
 
 @keyframes twinkle {
-  0% {
-    background-color: grey;
-  }
-  100% {
-    transform: scale(1.3, 1.3);    
+  50% {
+    translate: 
   }
 }
 
 @keyframes fadeout {
   0% {
-    opacity: 1.0;
+    opacity: 1;
   }
 
   20% {
-    opacity: 0.6;    
+    opacity: 0.6;
   }
 
   50% {
     opacity: 0.2;
   }
 
-  70%, 100% {
-    opacity: 0.0;
-  }
-}
-
-@keyframes brighten {
-  0% {
-    background-color: #131862;
-  }
+  70%,
   100% {
-    background-color: skyblue;
-  }
-}
-
-@keyframes rise {
-  0% {
-    top: 51vh;
-  }  
-  100% {
-    box-shadow: 0 0 100px 10px var(--yellow);
-    top: 10vh;
+    opacity: 0;
   }
 }
