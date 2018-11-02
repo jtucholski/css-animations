@@ -62,7 +62,7 @@
     background-color: var(--dark-night);
   }
   100% {
-    background-color: var(--dark-night);
+    background-color: var(--day-light);
   }
 }
 
