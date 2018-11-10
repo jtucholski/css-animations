@@ -1,0 +1,97 @@
+:root {
+  max-height: -200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  height: 90vh;
+  border-bottom: 5px solid black;
+}
+
+div {
+  position: relative;
+  align-self: flex-end;
+  width: 10vw;
+  height: 10vw;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.blue {
+  background-color: #00ADEE;
+}
+
+.bounce {    
+  transform-origin: bottom;  
+}
+
+#box1 {
+  animation: jump-5 2.5s cubic-bezier(0.280, 0.840, 0.420, 1.13) infinite;  
+}
+
+#box2 {
+  animation: jump-6 2.5s cubic-bezier(0.280, 0.840, 0.420, 1.0) infinite;  
+}
+
+
+@keyframes jump-1 {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-200px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes jump-2 {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-200px); }
+  100% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes jump-3 {
+  0% { transform: scale(1, 1) translateY(0); }
+  10% { transform: scale(1.1, .9) translateY(0); }
+  30% { transform: scale(.9, 1.1) translateY(-100px); }  
+  50% { transform: scale(1,1) translateY(0); }
+  100% { transform: scale(1,1) translateY(0); }
+}
+
+@keyframes jump-4 {
+  0% { transform: scale(1, 1) translateY(0); }
+  10% { transform: scale(1.1, .9) translateY(0); }
+  30% { transform: scale(.9, 1.1) translateY(-100px); }
+  50% { transform: scale(1,1) translateY(0); }
+  57% { transform: scale(1,1) translateY(-7px); }
+  64% { transform: scale(1,1) translateY(0); }
+  100% { transform: scale(1,1) translateY(0); }
+}
+
+@keyframes jump-5 {
+  0% { transform: scale(1, 1) translateY(0); }
+  10% { transform: scale(1.25, .9) translateY(0); }  
+  30% { transform: scale(.9, 1.25) translateY(-200px); }      
+  50% { transform: scale(1.05,.95) translateY(0); }
+  57% { transform: scale(1,1) translateY(-7px); }
+  64% { transform: scale(1,1) translateY(0); }
+  100% { transform: scale(1,1) translateY(0); }
+}
+
+@keyframes jump-6 {
+  0% { transform: scale(1, 1) translateY(0); }
+  10% { transform: scale(1.15, .85) translateY(0); }  
+  30% { transform: scale(.9, 1.1) translateY(-300px); }   
+  34% { transform: scale(0.9, 1.1); }     
+  35% { transform: scale(1, 1) translateY(0); }
+  53% { transform: scale(1.6, 0.4) translateY(0); }
+  64% { transform: scale(1,1) translateY(0); }
+  100% { transform: scale(1,1) translateY(0); }
+}
